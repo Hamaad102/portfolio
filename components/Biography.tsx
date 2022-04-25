@@ -76,22 +76,19 @@ const Biography = () => {
 		>
 			<Box
 				sx={{
-					width: {
-						lg: '20.938rem',
-						md: '16rem',
-						sm: '20.938rem',
-						xs: '14.813rem',
+					'.portrait': {
+						borderRadius: '50%',
 					},
-					height: {
-						lg: '20.938rem',
-						md: '16rem',
-						sm: '20.938rem',
-						xs: '14.812rem',
-					},
-					backgroundColor: 'black',
-					borderRadius: '50%',
 				}}
-			></Box>
+			>
+				<Image
+					src='/portrait.png'
+					alt='My picture'
+					width={250}
+					height={250}
+					className={'portrait'}
+				/>
+			</Box>
 			<Stack direction='column' spacing={{ md: 3, sm: 2, xs: 4 }}>
 				<Stack direction='column' alignItems={{ sm: 'start', xs: 'center' }}>
 					<Typography
