@@ -1,1 +1,14 @@
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221 242.22"><defs><style>.cls-1{font-size:220px;fill:#191a1a;font-family:Luxia-Regular, Luxia;}</style></defs><text class="cls-1" transform="translate(0 190.52)">hc</text></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 925 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(4.16667,0,0,4.16667,0,0)">
+        <g id="Layer-2" serif:id="Layer 2">
+            <g transform="matrix(220,0,0,220,1,163.039)">
+                <path d="M0.267,-0.501C0.212,-0.501 0.17,-0.477 0.14,-0.448L0.14,-0.732L0.04,-0.732L0.04,-0L0.14,-0L0.14,-0.404C0.166,-0.436 0.207,-0.468 0.266,-0.468C0.31,-0.468 0.366,-0.426 0.366,-0.331L0.366,-0L0.466,-0L0.466,-0.337C0.466,-0.417 0.409,-0.501 0.267,-0.501Z" style="fill:rgb(25,26,26);fill-rule:nonzero;"/>
+            </g>
+            <g transform="matrix(220,0,0,220,112.32,163.039)">
+                <path d="M0.427,-0.109C0.315,0.055 0.147,-0.007 0.148,-0.243C0.148,-0.478 0.317,-0.543 0.429,-0.376L0.454,-0.397C0.434,-0.432 0.38,-0.501 0.273,-0.501C0.126,-0.501 0.04,-0.389 0.04,-0.243C0.04,-0.097 0.126,0.014 0.273,0.014C0.372,0.014 0.43,-0.056 0.453,-0.092L0.427,-0.109Z" style="fill:rgb(25,26,26);fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>
