@@ -1,0 +1,20 @@
+# indirect deployment
+# through syncing `v1/prod` branch with `main`
+name: Vercel deployment
+
+on:
+  push:
+    tags:
+      - "v*" # proceeds eg: v1.0
+      - "!v*-*" # skips eg: v1.2.99-beta1, v3.5.0-test, etc.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Force push to deploy branch
+        run: git push --force --quiet https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:refs/heads/deploy
