@@ -5,8 +5,8 @@ name: Vercel deployment
 on:
   push:
     tags:
-      - "v*" # proceeds eg: v1.0
-      - "!v*-*" # skips eg: v1.2.99-beta1, v3.5.0-test, etc.
+      - 'v*' # proceeds eg: v1.0
+      - '!v*-*' # skips eg: v1.2.99-beta1, v3.5.0-test, etc.
 
 jobs:
   deploy:
