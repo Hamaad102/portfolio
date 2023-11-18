@@ -1,9 +1,10 @@
-import { motion } from 'framer-motion'
+import { Welcome, Profile } from '@/components'
 
 export default function Home() {
 	return (
-		<div>
-			<h1>Hello</h1>
+		<div className='h-screen w-screen'>
+			{/* <Welcome /> */}
+			<Profile />
 		</div>
 	)
 }
