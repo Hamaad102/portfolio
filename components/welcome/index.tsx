@@ -4,8 +4,8 @@ import './index.css'
 
 export default function Welcome() {
 	return (
-		<div className={`relative h-full w-full bg-black`}>
-			<div className='flex h-full flex-col items-center justify-center'>
+		<div className='relative h-screen w-full bg-black'>
+			<div className='flex h-screen flex-col items-center justify-center'>
 				<h1 className='text-white' id='welcome-text'>
 					Hi<span className='secondary-color'>.</span>
 				</h1>

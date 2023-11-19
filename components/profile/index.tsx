@@ -26,7 +26,7 @@ export default function Profile() {
 			variants={variants}
 			initial={'welcome_initial'}
 			animate={'welcome_animate'}
-			className='h-full flex-col items-center justify-center overflow-hidden bg-white'
+			className='h-screen flex-col items-center justify-center overflow-hidden bg-white'
 		>
 			<h2 className='font-extralight max-md:hidden' id='profile'>
 				i&apos;m <span className='font-semibold'>Hamaad Chughtai</span>
