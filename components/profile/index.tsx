@@ -1,11 +1,33 @@
+'use client'
 import Image from 'next/image'
+
+import { motion } from 'framer-motion'
 
 import './index.css'
 import logo from '@/public/logo.svg'
 
+const variants = {
+	welcome_initial: { opacity: 0, y: -30 },
+	welcome_animate: {
+		y: 0,
+		opacity: 1,
+		display: 'flex',
+		transition: {
+			ease: [0.43, 0.13, 0.23, 0.96],
+			duration: 1,
+			delay: 0.35
+		}
+	}
+}
+
 export default function Profile() {
 	return (
-		<div className='flex h-full flex-col items-center justify-center'>
+		<motion.div
+			variants={variants}
+			initial={'welcome_initial'}
+			animate={'welcome_animate'}
+			className='h-full flex-col items-center justify-center overflow-hidden bg-white'
+		>
 			<h2 className='font-extralight max-md:hidden' id='profile'>
 				i&apos;m <span className='font-semibold'>Hamaad Chughtai</span>
 				<br />a{' '}
@@ -18,7 +40,7 @@ export default function Profile() {
 			<Image src={logo} alt='HC' height={100} className='md:hidden' />
 			<h6
 				id='social'
-				className='absolute bottom-3 top-auto font-extralight max-md:left-1 max-md:self-start md:right-8 md:self-end'
+				className='absolute bottom-3 font-extralight max-md:left-1 max-md:self-start md:right-8 md:self-end'
 			>
 				find me on
 				<br className='hidden max-md:block' />{' '}
@@ -34,6 +56,6 @@ export default function Profile() {
 					Medium
 				</a>
 			</h6>
-		</div>
+		</motion.div>
 	)
 }
