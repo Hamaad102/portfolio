@@ -1,13 +1,18 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+.pnp.*
 
 # next.js
 /.next/
+/out/
 
 # local env files
 .env*.local
 
 # vscode
 .vscode/*
+
+# cursor
+.cursor
+.cursorrules

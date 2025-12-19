@@ -8,8 +8,7 @@ const geistSans = Geist({
 })
 
 export const metadata: Metadata = {
-	title: 'Hamaad Chughtai | Full Stack Developer',
-	description: "Hamaad Chughtai's Developer Portfolio"
+	title: 'Hamaad Chughtai'
 }
 
 export const viewport: Viewport = {

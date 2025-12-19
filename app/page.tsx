@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'motion/react'
 
+import type { Variants } from 'motion/react'
+
 import logo from '@/public/logo.svg'
 
 interface ClickPosition {
@@ -16,7 +18,7 @@ interface TransitionState {
 	clickPosition: ClickPosition
 }
 
-const variants = {
+const variants: Variants = {
 	welcome_initial: {
 		opacity: 0,
 		y: 5,
@@ -29,10 +31,10 @@ const variants = {
 		display: 'flex',
 		transition: {
 			duration: 1.2,
-			ease: [0.41, 0.03, 0.12, 0.93],
+			ease: [0.41, 0.03, 0.12, 0.93] as const,
 			filter: {
 				duration: 1,
-				ease: [0.41, 0.03, 0.12, 0.93]
+				ease: [0.41, 0.03, 0.12, 0.93] as const
 			}
 		}
 	}
@@ -156,12 +158,12 @@ export default function Home() {
 								I&apos;m <span className='font-semibold'>Hamaad Chughtai</span>
 								<br />a{' '}
 								<span className='font-semibold' id='title'>
-									{process.env.USER_TITLE}
+									{process.env.TITLE}
 								</span>
 								<br />
 								at{' '}
 								<span className='font-semibold'>
-									{process.env.USER_COMPANY}
+									{process.env.COMPANY}
 								</span>
 							</h2>
 							<Image src={logo} alt='HC' height={100} className='md:hidden' />
