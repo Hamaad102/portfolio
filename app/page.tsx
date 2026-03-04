@@ -1,11 +1,6 @@
 'use client'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'motion/react'
-
-import type { Variants } from 'motion/react'
-
-import logo from '@/public/logo.svg'
 
 interface ClickPosition {
 	x: number
@@ -18,27 +13,16 @@ interface TransitionState {
 	clickPosition: ClickPosition
 }
 
-const variants: Variants = {
-	welcome_initial: {
-		opacity: 0,
-		y: 5,
-		filter: 'blur(5px)'
+const socialLinks = [
+	{ label: 'VeroFi', href: 'https://www.verofi.app/' },
+	{ label: 'Github', href: 'https://github.com/Hamaad102' },
+	{
+		label: 'LinkedIn',
+		href: 'https://www.linkedin.com/in/hamaadchughtai/'
 	},
-	welcome_animate: {
-		opacity: 1,
-		y: 0,
-		filter: 'blur(0px)',
-		display: 'flex',
-		transition: {
-			duration: 1.2,
-			ease: [0.41, 0.03, 0.12, 0.93] as const,
-			filter: {
-				duration: 1,
-				ease: [0.41, 0.03, 0.12, 0.93] as const
-			}
-		}
-	}
-}
+	{ label: 'Twitter', href: 'https://x.com/HamaadDEV' },
+	{ label: 'YouTube', href: 'https://www.youtube.com/@Hamaad' }
+] as const
 
 const CircleTransition = ({
 	isActive,
@@ -55,7 +39,7 @@ const CircleTransition = ({
 				<m.div
 					initial={{
 						clipPath: `circle(0px at ${clickPosition.x}px ${clickPosition.y}px)`,
-						background: 'black'
+						background: 'white'
 					}}
 					animate={{
 						clipPath: `circle(150% at ${clickPosition.x}px ${clickPosition.y}px)`,
@@ -79,13 +63,15 @@ const CircleTransition = ({
 	)
 }
 
-export default function Home() {
+/* ease-out-quint — fast start, smooth settle. Best for entrance animations. */
+const easeOutQuint = [0.23, 1, 0.32, 1] as const
+
+export default function DesignThree() {
 	const [transition, setTransition] = useState<TransitionState>({
 		active: false,
 		destination: '',
 		clickPosition: { x: 0, y: 0 }
 	})
-
 	const [shouldAnimate, setShouldAnimate] = useState(false)
 
 	useEffect(() => {
@@ -96,7 +82,6 @@ export default function Home() {
 					destination: '',
 					clickPosition: { x: 0, y: 0 }
 				})
-
 				setShouldAnimate(false)
 				setTimeout(() => setShouldAnimate(true), 50)
 			}
@@ -107,34 +92,18 @@ export default function Home() {
 			destination: '',
 			clickPosition: { x: 0, y: 0 }
 		})
-
 		setTimeout(() => setShouldAnimate(true), 50)
 
 		window.addEventListener('pageshow', handlePageShow)
-
-		return () => {
-			window.removeEventListener('pageshow', handlePageShow)
-		}
+		return () => window.removeEventListener('pageshow', handlePageShow)
 	}, [])
-
-	const handleLinkClick = (
-		e: React.MouseEvent<HTMLAnchorElement>,
-		href: string
-	) => {
-		e.preventDefault()
-		setTransition({
-			active: true,
-			destination: href,
-			clickPosition: {
-				x: e.clientX,
-				y: e.clientY
-			}
-		})
-	}
 
 	return (
 		<LazyMotion features={domAnimation}>
-			<div className='h-screen w-screen overflow-hidden'>
+			<div
+				className='h-dvh w-screen overflow-hidden'
+				style={{ background: '#10100E' }}
+			>
 				<CircleTransition
 					isActive={transition.active}
 					destination={transition.destination}
@@ -143,69 +112,68 @@ export default function Home() {
 				<AnimatePresence>
 					{shouldAnimate && (
 						<m.div
-							key='welcome-animation'
-							variants={variants}
-							initial='welcome_initial'
-							animate='welcome_animate'
+							key='main-content'
+							initial={{ opacity: 0, filter: 'blur(4px)' }}
+							animate={{ opacity: 1, filter: 'blur(0px)' }}
+							transition={{
+								duration: 1,
+								ease: [0.41, 0.03, 0.12, 0.93]
+							}}
+							className='flex h-dvh flex-col items-center justify-center px-6 pb-[3vh] md:px-8 md:pb-[5vh]'
 							style={{
-								willChange: 'transform, opacity, filter',
+								willChange: 'opacity, filter',
 								backfaceVisibility: 'hidden',
 								WebkitBackfaceVisibility: 'hidden'
 							}}
-							className='h-screen flex-col items-center justify-center overflow-hidden bg-white'
 						>
-							<h2 className='font-extralight max-md:hidden' id='profile'>
-								I&apos;m <span className='font-semibold'>Hamaad Chughtai</span>
-								<br />a{' '}
-								<span className='font-semibold' id='title'>
-									{process.env.TITLE}
-								</span>
-								<br />
-								at{' '}
-								<span className='font-semibold'>
-									{process.env.COMPANY}
-								</span>
-							</h2>
-							<Image src={logo} alt='HC' height={100} className='md:hidden' />
-							<h6
-								id='social'
-								className='absolute bottom-3 font-extralight max-md:left-1 max-md:self-start md:right-8 md:self-end'
-							>
-								find me on
-								<br className='hidden max-md:block' />{' '}
-								<a
-									href='https://bsky.app/profile/hamaadchughtai.com'
-									className='font-semibold'
-									onClick={(e) =>
-										handleLinkClick(
-											e,
-											'https://bsky.app/profile/hamaadchughtai.com'
-										)
-									}
+							<div>
+								{/* Name */}
+								<h1
+									className='text-[2.75rem] font-semibold md:text-[clamp(2rem,5vw,3.5rem)]'
+									style={{
+										letterSpacing: '-0.04em',
+										color: '#FFFFE3'
+									}}
 								>
-									Bluesky
-								</a>
-								,{' '}
-								<a
-									href='https://github.com/Hamaad102'
-									className='font-semibold'
-									onClick={(e) =>
-										handleLinkClick(e, 'https://github.com/Hamaad102')
-									}
+									Hamaad Chughtai
+								</h1>
+								<p
+									className='mt-2 text-[1.125rem] font-extralight md:text-[clamp(1rem,2vw,1.25rem)]'
+									style={{
+										color: '#939393',
+										letterSpacing: '-0.01em'
+									}}
 								>
-									Github
-								</a>{' '}
-								and{' '}
-								<a
-									href='https://medium.com/@hamaadchughtai'
-									className='font-semibold'
-									onClick={(e) =>
-										handleLinkClick(e, 'https://medium.com/@hamaadchughtai')
-									}
-								>
-									Medium
-								</a>
-							</h6>
+									Product Engineer at EQ Works
+								</p>
+
+								{/* Links */}
+								<div className='mt-8 flex flex-col items-start gap-1 md:mt-10 md:gap-3'>
+									{socialLinks.map((link, i) => (
+										<m.a
+											key={link.label}
+											href={link.href}
+											target='_blank'
+											rel='noopener noreferrer'
+											initial={{ opacity: 0, y: 6 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{
+												duration: 0.25,
+												ease: easeOutQuint,
+												delay: 0.5 + i * 0.08
+											}}
+											className='social-link text-[1.2rem] md:text-[clamp(1.1rem,1.8vw,1.35rem)]'
+											style={{
+												color: '#A2A2A2',
+												fontWeight: 300,
+												letterSpacing: '-0.02em'
+											}}
+										>
+											{link.label}
+										</m.a>
+									))}
+								</div>
+							</div>
 						</m.div>
 					)}
 				</AnimatePresence>

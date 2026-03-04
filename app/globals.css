@@ -28,34 +28,20 @@
   }
 }
 
-:root {
-	--background: #ffffff;
-	--primary: #191a1a;
-	--secondary: #f24333;
-}
-
+html,
 body {
+	background-color: #10100E;
 	line-height: normal;
-	color: var(--primary);
-	background: var(--background);
 }
 
-.secondary-color {
-	color: var(--secondary);
+.social-link {
+	transition: color 150ms ease, transform 200ms ease-out;
+	padding-block: 0.35rem;
 }
 
-#profile {
-	font-size: 4rem;
-	letter-spacing: -0.2rem;
-}
-
-#title {
-	background-color: var(--secondary);
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-}
-
-#social {
-	font-size: 2rem;
-	letter-spacing: -0.1rem;
+@media (hover: hover) and (pointer: fine) {
+	.social-link:hover {
+		color: #FFFFE3;
+		transform: translateY(-1px);
+	}
 }
